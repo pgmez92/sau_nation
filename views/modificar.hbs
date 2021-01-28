@@ -1,0 +1,43 @@
+<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="booking-form">
+		<form action="/reservas/borrar" method="post"> 
+				<div class="form-header col-12">
+							<h1>Modifica o cancela tu reserva</h1>
+							<h3>Tienes una cita con la aventura el día {{cita.fecha}}{{fecha}}.</h3>								
+				</div>
+				<div class="form-btn">
+					<button class="submit-btn">Si deseas borrar la cita <input name="codigo" style="display:none" value={{id}}> PINCHA AQUI</button>
+				</div>
+		</form>
+						<form method="post" action="/reservas/cambiar" class="formulario" id="formulario">														
+							<div class="row">
+								<div class="col-sm-9">
+									<div class="form-group btnCalendar">
+										<input class="form-control mb-4" type="text" id='calendar' name="fecha">
+									</div>
+									<span class="error">{{error.fecha}}</span>
+									<span class="error">{{error.fechaIgual}}</span>
+								</div>
+							
+							</div>
+							<div class="form-btn">
+								<button class="submit-btn">Guarda tus cambios</button>
+								<input name="codigo" style="display:none" value={{id}}>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<!-- IMPLEMENTACIÓN DE FLATPICKR -->
+<!-- https://flatpickr.js.org/instance-methods-properties-elements/ -->
+<link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/confetti.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="/js/calendario.js"></script>
+

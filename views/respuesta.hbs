@@ -1,0 +1,24 @@
+<div class="cita">
+<h1>¡Ya tienes tu cita confirmada, {{cita.nombre}}!</h1>
+
+<p>El día que has reservado es: {{cita.fecha}}. Tu código para modificar o cancelar la cita es el <input name="codigo" value={{cita.id}} disabled>. ¿Te has equivocado de día? Modifica tu cita <a href="/reservas/modificar/{{cita.id}}">aquí.</a></p>
+
+<canvas id="canvas"></canvas>
+ 
+<script src="/js/qrcode/build/qrcode.min.js"></script>
+<script>
+    let citaQr= 'El día que has reservado es: {{cita.fecha}}. Tu código para modificar o cancelar la cita es el {{cita.id}}'
+    QRCode.toCanvas(document.getElementById('canvas'), citaQr, function (error) {
+    if (error) console.error(error)
+    console.log('success!');
+  })
+</script> 
+
+<p class="politica-cambios">Si hubiera algún cambio de horario de nuestras instalaciones o modificaciones en el aforo, se lo comunicaremos al correo {{cita.email}} o te enviaremos un sms al {{cita.telefono}} </p>
+
+<a href="/">Volver a Inicio</a>
+
+<h5>¡Gracias por la reserva! Nos vemos pronto.</h5>
+
+</div>
+    

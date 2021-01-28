@@ -1,0 +1,49 @@
+<form class="formulario" id="formulario" method="post" action="/reservas/guardar">
+	<div class="form-header col-12">
+		<h1>RESERVA YA</h1>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="form-group">
+				<label class="form-label" for="nombre">Nombre</label>
+				<input class="form-control" type="text" placeholder="Introduce un nombre de contacto" id="nombre"
+					name="nombre" value={{cita.nombre}}>
+			</div>
+			<span class="error">{{error.nombre}}</span>
+		</div>
+		<div class="col-sm-6">
+			<div class="form-group">
+				<label class="form-label" for="email">Email</label>
+				<input class="form-control" type="email" placeholder="Introduce tu email" id="email" name="email"
+					value={{cita.email}}>
+			</div>
+			<span class="error">{{error.email}}</span>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="form-label" for="telefono">Teléfono</label>
+		<input class="form-control" type="tel" placeholder="Introduce tu número de teléfono" id="telefono"
+			name="telefono" value={{cita.telefono}}>
+	</div>
+	<span class="error">{{error.telefono}}</span>
+
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="form-group btnCalendar">
+				<input class="form-control mb-4" type="date" id='calendar' name="fecha" placeholder="Escoge TU día">
+			</div>
+		</div>
+		<span class="error">{{error.fecha}}</span>
+		<span class="error">{{error.fechaIgual}}</span>
+	</div>
+	<div class="form-btn">
+		<button type="submit-btn" id="btnReservar" class="submit-btn">Reserva ahora</button>
+	</div>
+	</div>
+</form>
+
+<!-- IMPLEMENTACIÓN DE FLATPICKR -->
+<!-- https://flatpickr.js.org/instance-methods-properties-elements/ -->
+<link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/confetti.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="/js/calendario.js"></script>

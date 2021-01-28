@@ -1,0 +1,53 @@
+
+			<div class="reservas">
+				<div class="row">
+					<div class="form-header col-12">
+						<h1>Gestiona tus reservas</h1>
+					</div>
+				</div>
+				<div class="row my-4">
+
+					<div class="col-12 border p-5">
+						<h2>CREA UNA CITA NUEVA</h2>
+						<div class="form-btn">
+							<a href="/reservas/nueva" class="submit-btn">¡Vamos!</a>
+						</div>
+					</div>
+
+					<form id="txtId" action="/modificar" method="post" class="col-sm-6 mt-4 border p-5">
+						<div class="form-group">
+							<span style="display:none"></span>
+							<label class="form-label" for="nombre">Modifica o cancela tu reserva</label>
+							<input class="form-control" type="text" placeholder="Introduce tu código de cita" id="idCita"
+								name="idCita">
+						</div>
+						<span class="error">{{error}}</span>
+						<div class="form-btn">
+							<button type="submit" class="submit-btn" id="btnModificar">¡Modifica tu cita!</button>
+						</div>
+					</form>
+					<script>
+						document.querySelector("#btnModificar").onclick = () => {
+							document.querySelector("#txtId").action = "/reservas/modificar/" + document.querySelector("#idCita").value
+							console.log(document.querySelector("#txtId").action)
+						}
+					</script>
+
+					<form action="/reservas/recuperar" method="post" class="col-sm-6 mt-4 border p-5">
+						<div class="form-group">
+							<label class="form-label" for="email">Recupera tus citas</label>
+							<input class="form-control" type="email" placeholder="Introduce tu email" id="email"
+								name="email" value={{email}}>
+						</div>
+						<span class="error">{{errorMail}}</span>
+						<span class="exito">{{exito}}</span>
+						<div class="form-btn">
+							<button class="submit-btn">¡Recupera tus citas!</button>
+						</div>
+					</form>
+
+					<div class="form-btn mt-4">
+						<a href="/" class="submit-btn">Vuelve a inicio</a>
+					</div>
+				</div>
+			</div>
